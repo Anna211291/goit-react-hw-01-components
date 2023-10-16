@@ -1,22 +1,24 @@
+import {TableWrapper, TheadWrapper, TableItem, TableItemName} from '../TransactionHistory/TransactionHistory.styled'
+
 export const TransactionHistory = ({items}) => {
-return (<table>
-     <thead>
+return (<TableWrapper>
+     <TheadWrapper>
         <tr>
-          <th>Type</th>
-          <th>Amount</th>
-          <th>Currency</th>
+          <TableItemName>Type</TableItemName>
+          <TableItemName>Amount</TableItemName>
+          <TableItemName>Currency</TableItemName>
         </tr>
-      </thead>
+      </TheadWrapper>
     {items.map(item => 
        { const {id, type, amount, currency } = item
       return (
-      <tbody >
-    <tr key={id}>
-      <th>{type}</th>
-      <th>{amount}</th>
-      <th>{currency}</th>
+      <tbody key={id}>
+    <tr >
+      <TableItem>{type}</TableItem>
+      <TableItem>{amount}</TableItem>
+      <TableItem>{currency}</TableItem>
     </tr>
   </tbody>)}  
     )}
-</table>)
+</TableWrapper>)
 }

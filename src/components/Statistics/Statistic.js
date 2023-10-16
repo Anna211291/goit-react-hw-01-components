@@ -1,15 +1,15 @@
+import {Container, StatisticWrapper, StatisticItems } from '../Statistics/Statistic.styled'
 
 export const Statistic = ({title, stats}) => {
-return (<div>
+return (<Container>
   <h2 >{title}</h2>
 
-  <ul >
-    {stats.map(stat => (
-        <li key={stat.id}>
+  <StatisticWrapper >
+    {stats.map(stat => (<StatisticItems  key={stat.id} label={stat.label}>
       <span >{stat.label}</span>
-      <span >{stat.percentage}%</span>
-    </li>
-    ))}
-  </ul>
-</div>)
+      <span ><b>{stat.percentage}%</b></span>
+    </StatisticItems>)
+    )}
+  </StatisticWrapper>
+</Container>)
 } 

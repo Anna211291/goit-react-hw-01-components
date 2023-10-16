@@ -1,3 +1,5 @@
+import {Container, ProfileInfo, ProfileStatistic, ProfileStatisticItem, ProfilePhoto, ProfileName, ProfileInfoItem} from '../Profile/Profiled.styled'
+
 export const Profile = ({
   username,
   tag,
@@ -6,28 +8,28 @@ export const Profile = ({
   stats: { followers, views, likes },
 }) => {
   return (
-    <div>
-      <div>
-        <img src={avatar} alt="User avatar" />
-        <p>{username}</p>
-        <p>{tag}</p>
-        <p>{location}</p>
-      </div>
+    <Container>
+      <ProfileInfo>
+        <ProfilePhoto src={avatar} alt="User avatar" width={200} height={200}/>
+        <ProfileName>{username}</ProfileName>
+        <ProfileInfoItem>&#64;{tag}</ProfileInfoItem>
+        <ProfileInfoItem>{location}</ProfileInfoItem>
+      </ProfileInfo>
 
-      <ul>
-        <li>
-          <span>Followers</span>
+      <ProfileStatistic>
+        <ProfileStatisticItem>
+          <span><b>Followers</b></span>
           <span>{followers}</span>
-        </li>
-        <li>
-          <span>Views</span>
+        </ProfileStatisticItem>
+        <ProfileStatisticItem>
+          <span><b>Views</b></span>
           <span>{views}</span>
-        </li>
-        <li>
-          <span>Likes</span>
+        </ProfileStatisticItem>
+        <ProfileStatisticItem>
+          <span><b>Likes</b></span>
           <span>{likes}</span>
-        </li>
-      </ul>
-    </div>
+        </ProfileStatisticItem>
+      </ProfileStatistic>
+    </Container>
   );
 };
